@@ -7,7 +7,7 @@ import { PremiumCalculatorFacade } from '../../services/premium-calculator.facad
 @Component({
   selector: 'app-premium-calculator',
   imports: [CommonModule,ReactiveFormsModule],
-  template: './premium-calculator.html',
+  templateUrl: './premium-calculator.html',
   styleUrl: './premium-calculator.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

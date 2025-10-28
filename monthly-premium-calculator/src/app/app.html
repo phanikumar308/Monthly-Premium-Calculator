@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Monthly Premium Calculator</h1>
+
+  <!-- Calculator -->
+  <app-premium-calculator
+    (premiumCalculated)="onPremiumCalculated($event)">
+  </app-premium-calculator>
+
+  <!-- Display -->
+  <app-premium-display [premium]="premium()"></app-premium-display>
+</div>
