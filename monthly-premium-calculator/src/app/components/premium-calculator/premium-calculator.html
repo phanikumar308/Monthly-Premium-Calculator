@@ -1,0 +1,25 @@
+<form [formGroup]="form" (ngSubmit)="onCalculate()" class="card">
+
+  <label>Name</label>
+  <input formControlName="name" placeholder="John Doe" />
+
+  <label>Date of Birth (mm/YYYY)</label>
+  <input formControlName="dobMonthYear" placeholder="06/1990" />
+
+  <label>Age Next Birthday</label>
+  <input type="number" formControlName="ageNextBirthday" placeholder="35" />
+
+  <label>Usual Occupation</label>
+  <select formControlName="occupation">
+    <option [ngValue]="null" disabled selected>-- Select Occupation --</option>
+    <option *ngFor="let o of occupations" [ngValue]="o">
+      {{ o.name }} ({{ o.rating }})
+    </option>
+  </select>
+
+  <label>Death – Sum Insured</label>
+  <input type="number" formControlName="deathSumInsured" placeholder="500000" />
+
+  <button type="submit" [disabled]="!form.valid">Calculate</button>
+
+</form>
