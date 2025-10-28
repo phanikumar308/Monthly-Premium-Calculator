@@ -1,59 +1,81 @@
-# MonthlyPremiumCalculator
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.7.
+# 🧮 Monthly Premium Calculator (Angular Standalone)
 
-## Development server
+A small Angular application that calculates **monthly insurance premium** based on user inputs and occupation rating factors.
 
-To start a local development server, run:
+---
 
+## 🚀 Features
+- Angular 18+ with **standalone components**
+- **Reactive Forms** with full validation
+- Modular structure: services + facade + UI
+- Auto premium recalculation when occupation changes
+- Clean UI with simple styling
+- Test data and expected results included
+
+---
+
+## 🧠 Formula
+Monthly Premium = (Death Cover * Occupation Factor * Age) / 1000 * 12
+
+
+### Occupation Rating Factors
+
+| Occupation        | Rating         | Factor  |
+|--------------------|----------------|----------|
+| Doctor             | Professional   | 1.5      |
+| Author             | White Collar   | 2.25     |
+| Cleaner / Florist  | Light Manual   | 11.5     |
+| Farmer / Mechanic  | Heavy Manual   | 31.75    |
+
+---
+
+## 🧾 Example Test Data
+
+| Name | Age | Occupation | Death Cover | Expected Premium |
+|------|-----|-------------|--------------|------------------|
+| John Doe | 35 | Doctor | 500,000 | 315,000 |
+| Alice | 40 | Author | 1,000,000 | 1,080,000 |
+| Robert | 30 | Cleaner | 250,000 | 1,035,000 |
+| Mary | 50 | Mechanic | 750,000 | 14,287,500 |
+
+---
+
+## ✅ Validation Rules
+- All fields are **mandatory**
+- Age and Death Cover must be **greater than 0**
+- Premium auto-recalculates when **occupation changes**
+
+---
+
+## 🧩 Architecture Overview
+- **Models:** `occupation.model.ts` — defines occupation data
+- **Services:** 
+  - `rating.service.ts` → provides factor values  
+  - `premium.service.ts` → implements formula  
+  - `premium-calculator.facade.ts` → orchestrates both  
+- **Components:** 
+  - `premium-calculator` → input form  
+  - `premium-display` → result viewer  
+  - `app.ts` → root component
+
+---
+
+## 🧰 Tech Stack
+- Angular 18+ (Standalone)
+- TypeScript
+- Reactive Forms
+- Signals
+- HTML + CSS
+
+---
+
+## 🧪 Run Locally
 ```bash
-ng serve
-```
+npm install
+npm start
+Then open: http://localhost:4200
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Test 
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
 ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
